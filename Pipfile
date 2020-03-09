@@ -8,8 +8,5 @@ verify_ssl = true
 [packages]
 bcrypt = "*"
 
-[requires]
-python_version = "3.8"
-
 [scripts]
 test = "python -m unittest discover -v tests"
