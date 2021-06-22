@@ -25,4 +25,5 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Test
         run: |
+          poetry install
           poetry run python -m unittest
