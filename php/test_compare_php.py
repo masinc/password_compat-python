@@ -10,8 +10,9 @@ class TestComparePhp(unittest.TestCase):
         ]
 
         for password in passwords:
-            result = subprocess.run(["php", "php/password_hash.php", password], text=True, check=True, stdout=subprocess.PIPE)
-            hashed_password = str(result.stdout).strip()
+            result = subprocess.run(["php", "php/password_hash.php", password], check=True, stdout=subprocess.PIPE)
+            hashed_password: bytes = result.stdout
+            hashed_password: str = hashed_password.decode().strip()
 
             self.assertTrue(password_compat.password_verify(password, hashed_password))
 
