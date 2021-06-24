@@ -34,4 +34,4 @@ jobs:
           php-version: ${{ matrix.php-version }}
       - name: test
         run: |
-          poetry run python -m unittest discoverr -v php
+          poetry run python -m unittest discover -v php
