@@ -1,0 +1,37 @@
+name: Function test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8, 3.9]
+        php-version: [5.5, 5.6, 5.7, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: install poetry
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: poetry install
+        run: |
+          poetry install
+      - name: install PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+      - name: test
+        run: |
+          poetry run python -m unittest discoverr -v php
