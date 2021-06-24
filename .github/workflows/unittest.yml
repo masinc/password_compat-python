@@ -27,4 +27,4 @@ jobs:
       - name: Unittest
         run: |
           poetry install
-          poetry run python -m unittest -v
+          poetry run python -m unittest discover -v tests
