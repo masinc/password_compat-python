@@ -17,13 +17,13 @@ jobs:
         php-version: [5.5, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0]
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: setup Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - name: install poetry
+      - name: setup poetry
         uses: abatilo/actions-poetry@v2.0.0
-      - name: poetry install
+      - name: install install
         run: |
           poetry install
       - name: install PHP ${{ matrix.php-version }}
