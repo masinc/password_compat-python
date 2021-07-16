@@ -6,10 +6,9 @@ authors = ["masinc <masinc000@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.6"
+bcrypt = "^3.2.0"
 
 [tool.poetry.dev-dependencies]
-bcrypt = "^3.2.0"
-mypy = "^0.902"
 flake8 = "^3.9.2"
 autopep8 = "^1.5.7"
 
