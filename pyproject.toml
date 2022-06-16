@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "password_compat"
-version = "0.2.0"
+version = "0.2.1"
 description = "PHP's password_compat like library for Python"
 license = "MIT OR Apache-2.0"
 homepage = "https://github.com/masinc/password_compat-python"
